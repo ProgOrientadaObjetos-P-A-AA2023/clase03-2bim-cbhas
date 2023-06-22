@@ -1,4 +1,3 @@
-
 package paquete04;
 
 import java.util.Scanner;
@@ -21,12 +20,12 @@ public class EjecutaEstudiante {
         int tipoEstudiante;
         String continuar;
         int contador;
-        Estudiante [] estudiantes = new Estudiante[10];
+        Estudiante[] estudiantes = new Estudiante[4];
 
         // Incio ciclo repetitivo que permite generar 10 objetos de tipo
         // EstudiantePresencial y EstudianteDistancia 
         contador = 0;
-        while(contador<10){
+        while (contador < 4) {
             // Se imprime mensaje en pantalla para solicitar
             // el tipo de estudiante que se desea ingresar
             System.out.println("Tipo de Estudiante a ingresar\n"
@@ -51,7 +50,7 @@ public class EjecutaEstudiante {
 
             if (tipoEstudiante == 1) {
 
-                // Declarar,crear e iniciar objeto tipo EstudiantePresencial
+                // Declarar, crear e iniciar objeto tipo EstudiantePresencial
                 EstudiantePresencial estudianteP = new EstudiantePresencial();
                 // Solicitar ingreso de valores para variables 
                 // Solicitar numeroCreds, costoCred
@@ -71,49 +70,47 @@ public class EjecutaEstudiante {
                 // Se agrega al arreglo estudiantes un objeto de tipo
                 // EstudiantePresencial
                 estudiantes[contador] = estudianteP;
-                
+
             } else {
                 // Si el usuario ingresa un número diferente del valor 1 para 
                 // tipoEstudiante se procede a crear los procesos necesarios para 
                 // crear un objeto de tipo EstudianteDistancia
-                
-                    // Declarar,crear e iniciar objeto tipo EstudianteDistancia
-                    EstudianteDistancia estudianteD = new EstudianteDistancia();
-                    // Solicitar ingreso de valores para variables 
-                    // Solicitar numeroAsigs, costoAsig 
-                    // Leer numeroAsigs, costoAsig
-                    System.out.println("Ingrese el número de asignaturas");
-                    numeroAsigs = entrada.nextInt();
-                    System.out.println("Ingrese el costo de cada cada asignatura");
-                    costoAsig = entrada.nextDouble();
 
-                    // se hace uso de los métodos establecer para asignar valores
-                    // a los datos (atributos) del objeto
-                    estudianteD.establecerNombresEstudiante(nombresEst);
-                    estudianteD.establecerApellidoEstudiante(apellidosEst);
-                    estudianteD.establecerIdentificacionEstudiante(identificacionEst);
-                    estudianteD.establecerEdadEstudiante(edadEst);
-                    estudianteD.establecerNumeroAsginaturas(numeroAsigs);
-                    estudianteD.establecerCostoAsignatura(costoAsig);
-                    
-                    // Se agrega al arreglo estudiantes un objeto de tipo
-                    // EstudianteDistancia
-                    estudiantes[contador] = estudianteD;
-                    
-                                                      
+                // Declarar,crear e iniciar objeto tipo EstudianteDistancia
+                EstudianteDistancia estudianteD = new EstudianteDistancia();
+                // Solicitar ingreso de valores para variables 
+                // Solicitar numeroAsigs, costoAsig 
+                // Leer numeroAsigs, costoAsig
+                System.out.println("Ingrese el número de asignaturas");
+                numeroAsigs = entrada.nextInt();
+                System.out.println("Ingrese el costo de cada cada asignatura");
+                costoAsig = entrada.nextDouble();
+
+                // se hace uso de los métodos establecer para asignar valores
+                // a los datos (atributos) del objeto
+                estudianteD.establecerNombresEstudiante(nombresEst);
+                estudianteD.establecerApellidoEstudiante(apellidosEst);
+                estudianteD.establecerIdentificacionEstudiante(identificacionEst);
+                estudianteD.establecerEdadEstudiante(edadEst);
+                estudianteD.establecerNumeroAsginaturas(numeroAsigs);
+                estudianteD.establecerCostoAsignatura(costoAsig);
+
+                // Se agrega al arreglo estudiantes un objeto de tipo
+                // EstudianteDistancia
+                estudiantes[contador] = estudianteD;
+
             }
-            
+
             contador = contador + 1;
         }
-        
+
         // Luego de crear y almancenar los objetos EstudiantePresencial
         // y EstudianteDistancia, se procede a usar un ciclo repetitivo
         // para recorrer el arreglo estudiantes, que permitirá:
         // 1. Llamar al método abstracto calcularMatricula, de acuedo a las
         // características propias de cada objeto.
         // 2. Presentar en pantalla los valores que se necesite.
-
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 4; i++) {
             // 1.  
             estudiantes[i].calcularMatricula();
             // en el punto 1, estudiantes[i] representa un objeto de tipo 
@@ -123,22 +120,22 @@ public class EjecutaEstudiante {
             // un método abstracto de la clase abstracta Estudiante y que fue implementado
             // de forma obligatoria en cada clase hija (EstudiantePresencial y
             // EstudianteDistancia)
-            
+
             // 2. se hace uso de los métodos obtener del objeto para presentar
             // los valores que se necesite en pantalla
             // Imprimir:
             System.out.printf("Datos Estudiante\n"
-                        + "Nombres: %s\n"
-                        + "Apellidos: %s\n"
-                        + "Identificación: %s\n"
-                        + "Edad: %d\n"
-                        + "Costo Matricula: %.2f\n",
-                  estudiantes[i].obtenerNombresEstudiante(),
-                  estudiantes[i].obtenerApellidoEstudiante(),
-                  estudiantes[i].obtenerIdentificacionEstudiante(),
-                  estudiantes[i].obtenerEdadEstudiante(),
-                  estudiantes[i].obtenerMatricula());
-            
+                    + "Nombres: %s\n"
+                    + "Apellidos: %s\n"
+                    + "Identificación: %s\n"
+                    + "Edad: %d\n"
+                    + "Costo Matricula: %.2f\n",
+                    estudiantes[i].obtenerNombresEstudiante(),
+                    estudiantes[i].obtenerApellidoEstudiante(),
+                    estudiantes[i].obtenerIdentificacionEstudiante(),
+                    estudiantes[i].obtenerEdadEstudiante(),
+                    estudiantes[i].obtenerMatricula());
+
         }
     }
 
